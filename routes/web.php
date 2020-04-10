@@ -23,3 +23,9 @@ Route::get('/contact', function () {
 Route::get('/service', function () {
     return view('services');
 })->name('service');
+
+Auth::routes();
+Route::group(['middleware'=>'auth'],function(){
+    Route::resource('categories', 'CategoryController');
+    Route::resource('products', 'ProductController');
+});

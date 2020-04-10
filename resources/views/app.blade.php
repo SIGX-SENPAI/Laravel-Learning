@@ -8,7 +8,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Shop Homepage - Start Bootstrap Template</title>
+        <title>REAN IS GAY</title>
 
         <!-- Bootstrap core CSS -->
         <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -23,7 +23,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="{{route('home')}}">REAN IS TALKING ABOUT PENNIS</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,6 +43,27 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('contact') }}">Contact</a>
                         </li>
+                        
+                        @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        </li>
+                        @endguest
+                        
+                        @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('products.index')}}">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('categories.index')}}">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="document.getElementById('logout-form').submit()">Log out</a>
+                        </li>
+                        <form action="{{ route('logout') }}" method="POST" id="logout-form">
+                            @csrf
+                        </form>
+                        @endauth
                     </ul>
                 </div>
             </div>
