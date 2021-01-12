@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { resolve } from 'url';
-
+// import { resolve } from 'url';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,10 +7,16 @@ import { resolve } from 'url';
 })
 export class AppComponent {
   nombre: string = 'Capitan America';
+  nombre2: string = 'dEUS eX mAchiNa';
   arreglo = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   PI: number = Math.PI;
   porcentaje: number = 0.234;
   salario: number = 1234.5;
+  idioma: string = 'es';
+
+  traducir(idm: string) {
+    this.idioma = idm;
+  }
   heroe = {
     nombre: 'logan',
     clave: 'wolverine',
@@ -27,4 +32,10 @@ export class AppComponent {
       resolve('llego la data');
     }, 4500);
   });
+  fecha: Date = new Date();
+  videourl: string = 'https://www.youtube.com/embed/ltNimjU-qMU';
+
+
+  activar: boolean = true;
+
 }
